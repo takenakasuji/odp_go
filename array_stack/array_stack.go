@@ -33,6 +33,23 @@ func (as *ArrayStack) Add(i, v int) {
 	as.n++
 }
 
+func (as *ArrayStack) Remove(i int) int {
+	r := as.buf[i]
+	for s := i; s < as.n - 1; s++ {
+		as.buf[s] = as.buf[s + 1]
+	}
+	as.n--
+	if as.isSeparate() {
+
+		as.resize()
+	}
+	return r
+}
+
+func (as ArrayStack) isSeparate() bool {
+	return len(as.buf) >= as.n * 3
+}
+
 func (as ArrayStack) isFull() bool {
 	return as.n == as.cap
 }
