@@ -61,3 +61,20 @@ func TestRemove(t *testing.T) {
 		t.Errorf("ArrayStack.Remove() = %v, %v", tests, as.buf)
 	}
 }
+
+func TestCapacity(t *testing.T) {
+	as := New()
+	for i := 0; i <= 5; i++ {
+		as.Add(i, i)
+	}
+	if cap(as.buf) != 8 {
+		t.Errorf("ArrayStack.resize(): Incorrect proccesing")
+	}
+
+	for i := 0; i < 4; i++ {
+		as.Remove(0)
+	}
+	if cap(as.buf) != 4 {
+		t.Errorf("ArrayStack.resize(): Incorrect proccesing")
+	}
+}
