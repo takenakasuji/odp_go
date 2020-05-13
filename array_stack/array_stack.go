@@ -47,7 +47,7 @@ func (as ArrayStack) isFull() bool {
 	return len(as.buf) == cap(as.buf)
 }
 
-func (as ArrayStack) resize() {
+func (as *ArrayStack) resize() {
 	c := as.maximum(len(as.buf)*2, 1)
 	newBuf := make([]int, len(as.buf), c)
 	for i := 0; i < len(as.buf); i++ {
