@@ -35,12 +35,29 @@ func TestGet(t *testing.T) {
 }
 
 func TestAdd(t *testing.T) {
-	tests := []int{100, 1, 20}
+	tests := make([]int, 0, 0)
+	tests = append(tests, 1, 100, 20)
 
 	as := New()
 	as.buf = append([]int{}, tests...)
-	as.Add(2, 200)
+	p := 1
+	as.Add(p, 55)
 	if reflect.DeepEqual(tests, as.buf) {
 		t.Errorf("ArrayStack.Add() = %v, %v", tests, as.buf)
+	}
+	if as.buf[p] != 55 {
+		t.Errorf("ArrayStack.Add() invalid result: %v", as.buf[p])
+	}
+}
+
+func TestRemove(t *testing.T) {
+	tests := make([]int, 0, 0)
+	tests = append(tests, 1, 100, 20)
+
+	as := New()
+	as.buf = append([]int{}, tests...)
+	as.Remove(1)
+	if reflect.DeepEqual(tests, as.buf) {
+		t.Errorf("ArrayStack.Remove() = %v, %v", tests, as.buf)
 	}
 }
