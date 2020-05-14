@@ -1,7 +1,7 @@
 package array_stack
 
-type ArrayStack struct
-	buf    []int
+type ArrayStack struct {
+	buf []int
 }
 
 func New() ArrayStack {
@@ -9,7 +9,7 @@ func New() ArrayStack {
 }
 
 func (as ArrayStack) Size() int {
-	return as.n
+	return len(as.buf)
 }
 
 func (as ArrayStack) Get(i int) int {

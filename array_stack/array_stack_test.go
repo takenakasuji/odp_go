@@ -6,8 +6,8 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	if r := New().n; r != 0 {
-		t.Errorf("ArrayStack.New().n = %v", r)
+	if r := len(New().buf); r != 0 {
+		t.Errorf("ArrayStack.New().buf = %v", r)
 	}
 }
 
