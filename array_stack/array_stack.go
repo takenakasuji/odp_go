@@ -1,7 +1,6 @@
 package array_stack
 
-type ArrayStack struct {
-	n, cap int
+type ArrayStack struct
 	buf    []int
 }
 
