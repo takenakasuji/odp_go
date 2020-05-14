@@ -1,3 +1,3 @@
-module odp_go
+module ods_go
 
 go 1.13
